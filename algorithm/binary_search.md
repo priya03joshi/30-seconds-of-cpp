@@ -3,8 +3,21 @@
 **Description :** Binary search is a widely used searching algorithm that requires the array to be sorted before search is applied. The main idea behind this algorithm is to keep dividing the array in half (divide and conquer) until the element is found, or all the elements are exhausted.
 The prototype for binary search is :
 ```
-binary_search(startaddress, endaddress, valuetofind)
+binary_search(array, valuetofind, startaddress, endaddress)
   ```
+  
+Pseudocode for binary search:
+binary_search(A,valuetofind, startaddress, endaddress)
+	if (endaddress < startaddress)
+		return not_found // value would be inserted at index "low"
+	mid = (startaddress + endaddress) / 2
+	if (A[mid] > valuetofind)
+                return BinarySearch(A, valuetofind, startaddress, mid-1)
+        else if (A[mid] < value)
+                return BinarySearch(A, valuetofind, mid+1, endaddress)
+        else
+                return mid
+
 **Example** :
 ```cpp
     void show(int a[], int arraysize) { 
